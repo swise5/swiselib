@@ -45,7 +45,7 @@ public class Wildfire implements Steppable {
 	GeomGridField impermeability;
 	
 	double precision = 5; // in meters, as in Alexandridis
-	double windspeed = 2.6; //m/s!
+	double windspeed = 1;//2.6; //m/s!
 	double sqrt2 = Math.sqrt(2);
 
 	public static int STATE_no_fuel = 0; // The cell contains no forest fuel. Cannot be burned.
@@ -156,15 +156,19 @@ public class Wildfire implements Steppable {
 		// if it's just one point, it's not a proper polygon
 		if(coords.size() > 3){
 			coords.add(coords.get(0));
+			
 			Geometry myGeom = fa.createPolygon(fa.createLinearRing(coords.toArray(new Coordinate [] {})), null);
+
 			if(myGeom.isEmpty()) return;
 			if(extent.getNumPoints() > 2)
 				extent = myGeom.convexHull().union(extent);
 			else
 				extent = myGeom.convexHull();
 		}
-		else
+		else if(coords.size() > 0)
 			extent = fa.createPoint(coords.get(0));
+		else
+			extent = fa.createPoint(new Coordinate(0,0));
 	}
 	
 	

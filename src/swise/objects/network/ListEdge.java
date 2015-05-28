@@ -28,7 +28,7 @@ public class ListEdge extends Edge {
 	
 	public int hashCode(){
 		//return (from().toString() + to().toString()).hashCode();
-		return from().hashCode() + to().hashCode();
+		return from().hashCode() + to().hashCode() + info.hashCode();
 	}
 	
 	public ListEdge(Edge e, double length) {

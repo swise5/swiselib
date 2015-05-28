@@ -401,8 +401,8 @@ public class AStar
 
 
     /**
-     * Measure of the estimated distance between two Nodes. Extremely basic, just
-     * Euclidean distance as implemented here.
+     * Measure of the estimated distance between two Nodes. Takes into account whether either of the 
+     * GeoNodes entails a delay
      * @param x
      * @param y
      * @return notional "distance" between the given nodes.
@@ -411,7 +411,13 @@ public class AStar
     {
         Coordinate xnode = x.geometry.getCoordinate();
         Coordinate ynode = y.geometry.getCoordinate();
-        return Math.sqrt(Math.pow(xnode.x - ynode.x, 2)
+        int nodeCost = 0;
+        if(x.hasAttribute("delay"))
+        	nodeCost += x.getIntegerAttribute("delay");
+        if(y.hasAttribute("delay"))
+        	nodeCost += y.getIntegerAttribute("delay");
+        
+        return nodeCost + Math.sqrt(Math.pow(xnode.x - ynode.x, 2)
             + Math.pow(xnode.y - ynode.y, 2));
     }
 

@@ -49,6 +49,28 @@ public class MobileAgent extends SpatialAgent {
 	public MobileAgent(Coordinate c){ super((new GeometryFactory()).createPoint(c)); }
 	public MobileAgent(Point p){ super(p); }
 
+	public HashMap <String, Object> getPositionalInformation(){
+		HashMap <String, Object> results = new HashMap <String, Object> ();
+		results.put("node", node);
+		results.put("direction", direction);
+		results.put("edge", edge);
+		results.put("segment", segment);
+		results.put("startIndex", startIndex);
+		results.put("endIndex", endIndex);
+		results.put("currentIndex", currentIndex);
+		return results;
+	}
+	
+	public void setPositionalInformation(HashMap <String, Object> position){
+		node = (GeoNode) position.get("node");
+		direction = (Integer) position.get("direction");
+		edge = (Edge) position.get("edge");
+		segment = (LengthIndexedLine) position.get("segment");
+		startIndex = (Double) position.get("startIndex");
+		endIndex = (Double) position.get("endIndex");
+		currentIndex = (Double) position.get("currentIndex");
+	}
+	
 	/**
 	 * 
 	 * @param time - a positive amount of time, representing the period of time agents 

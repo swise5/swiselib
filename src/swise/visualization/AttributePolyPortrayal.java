@@ -91,6 +91,10 @@ public class AttributePolyPortrayal extends GeomPortrayal
 		MasonGeometry gm = (MasonGeometry) object;
 		Geometry geometry = gm.getGeometry();
 
+		if(!gm.hasAttribute(attribute)){
+			return;
+		}
+		
 		if (geometry.isEmpty())
         {
             return;
