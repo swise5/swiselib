@@ -130,7 +130,7 @@ public class PopSynth {
 	String socialMediaUsageFilename = "/Users/swise/Dissertation/Colorado/data/PewTwitterUsageStats.txt";
 	
 	Network roadNetwork;
-	MersenneTwisterFast random = new MersenneTwisterFast(12345);
+	MersenneTwisterFast random = new MersenneTwisterFast(1234);
 
 	GeometryFactory gf = new GeometryFactory();
 	
@@ -943,7 +943,7 @@ public class PopSynth {
 		int popInGroupQuarters = area.getIntegerAttribute("DP0120014");
 		
 		ArrayList <Agent> groupPopulation = new ArrayList <Agent> ();
-		for(int i = 0; i < popInGroupQuarters; i++){
+		for(int i = 0; i < Math.min(individuals.size(), popInGroupQuarters); i++){
 			groupPopulation.add(individuals.remove(random.nextInt(individuals.size())));
 		}
 		
@@ -996,7 +996,7 @@ public class PopSynth {
 				numChildren = ownChildrenDistribution();
 				break;
 			case 5: // single female householder, OWN CHILDREN < 18
-				hh1 = 0;
+				hh1 = 1;
 				under18 = true;
 				numChildren = ownChildrenDistribution();
 				break;
@@ -1035,6 +1035,7 @@ public class PopSynth {
 			int attempts = Math.min(numAttempts, individuals.size()); // try at most 100 times to fill this slot
 			while(attempts > 0 && hh1 >= 0){
 				a = individuals.get(random.nextInt(individuals.size()));
+				attempts--;
 				if(a.sex == hh1 && a.age > 3){ // basic requirements
 
 					if(over65 && a.age < 13) // if the householder needs to be a senior 
@@ -1051,7 +1052,6 @@ public class PopSynth {
 					individuals.remove(a);
 					attempts = -1;
 				}
-				attempts--;
 			}
 
 			// add spouse, if appropriate /////////////////////////////////////////////

@@ -4,6 +4,11 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/mason16"/>
 	<classpathentry kind="lib" path="/Library/Java/geomason.1.5.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Library/Java/Extensions/geotools-2.7-M3/gt-api-2.7-M3.jar"/>
+	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-api-11.0.jar"/>
+	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-data-11.0.jar"/>
+	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-swing-11.0.jar"/>
+	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-shapefile-11.0.jar"/>
+	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-shapefile-old-11.0.jar"/>
+	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-epsg-hsql-11.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
