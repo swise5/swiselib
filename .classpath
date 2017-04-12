@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Library/Java/Extensions/jts-1.13.jar"/>
-	<classpathentry kind="lib" path="/Library/Java/Extensions/geomason.1.5.jar"/>
-	<classpathentry kind="lib" path="/Library/Java/Extensions/mason.17.jar"/>
+	<classpathentry kind="lib" path="libs/geomason.1.5.jar"/>
+	<classpathentry kind="lib" path="libs/jts-1.13.jar"/>
+	<classpathentry kind="lib" path="libs/mason.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
