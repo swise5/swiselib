@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mason16"/>
-	<classpathentry kind="lib" path="/Library/Java/geomason.1.5.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-api-11.0.jar"/>
-	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-data-11.0.jar"/>
-	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-swing-11.0.jar"/>
-	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-shapefile-11.0.jar"/>
-	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-shapefile-old-11.0.jar"/>
-	<classpathentry kind="lib" path="/CPC/libs/geotools-11.0/gt-epsg-hsql-11.0.jar"/>
+	<classpathentry kind="lib" path="/Library/Java/Extensions/jts-1.13.jar"/>
+	<classpathentry kind="lib" path="/Library/Java/Extensions/geomason.1.5.jar"/>
+	<classpathentry kind="lib" path="/Library/Java/Extensions/mason.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -341,7 +341,8 @@ public class NetworkUtilities{
 		int biggestSize = -1;
 		
 		Bag nodes = new Bag(network.getAllNodes());
-		int count = nodes.size() / 50;
+//		int count = nodes.size() / 50;
+		int count = (int) Math.max(1, Math.log10(nodes.size()));
 		
 		// pass over the list of nodes, selecting a node at random from the remaining pool
 		// and searching until all of the nodes connected to it have been found

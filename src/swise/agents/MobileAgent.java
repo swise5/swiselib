@@ -8,7 +8,6 @@ import sim.field.network.Edge;
 import sim.util.Bag;
 import sim.util.geo.MasonGeometry;
 import sim.util.geo.PointMoveTo;
-import sun.tools.tree.ThisExpression;
 import swise.objects.AStar;
 import swise.objects.GeometryUtilities;
 import swise.objects.network.GeoNode;
