@@ -10,9 +10,20 @@ public class ListEdge extends Edge {
 	private static final long serialVersionUID = 1L;
 	ArrayList <Object> elements = new ArrayList <Object> ();
 	double length = 1.;
+	double width = 1.;
 	
 	public ListEdge(Edge e) {
 		super(e);
+	}
+	
+	public ListEdge(Edge e, double length) {
+		this(e);
+		this.length = length;
+	}
+
+	public ListEdge(Edge e, double length, double width){
+		this(e, length);
+		this.width = width;
 	}
 
 	public boolean equals(Object o){
@@ -31,11 +42,6 @@ public class ListEdge extends Edge {
 		return from().hashCode() + to().hashCode() + info.hashCode();
 	}
 	
-	public ListEdge(Edge e, double length) {
-		super(e);
-		this.length = length;
-	}
-
 	public void addElement(Object o){
 		elements.add(o);
 	}
@@ -45,10 +51,16 @@ public class ListEdge extends Edge {
 	}
 	
 	public double lengthPerElement(){
-		return length / (double) Math.max(1, elements.size());
+		return length * width / (double) Math.max(1, elements.size());
 	}
 	
 	public double length(){
 		return length;
 	}
+	
+	public void setWidth(double w){
+		width = w;
+	}
+	
+	public double width(){ return width; }
 }
