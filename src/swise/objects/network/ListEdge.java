@@ -31,7 +31,12 @@ public class ListEdge extends Edge {
 			return false;
 		ListEdge l = (ListEdge)o;
 
-		if(l.getInfo().equals(this.info))
+		if(o == this)
+			return true;
+		
+		MasonGeometry mg = (MasonGeometry) l.getInfo();
+		MasonGeometry myMG = (MasonGeometry) this.info;
+		if(mg == myMG || mg.geometry.equals(myMG.geometry))
 			return true;
 
 		return false;
