@@ -166,5 +166,9 @@ public class MobileAgent extends SpatialAgent {
 		geometry.apply(p);
 		geometry.geometryChanged();
 	}
+	
+	public int getDirection(){ return direction; }
+	public double getCurrentIndex(){ return currentIndex; }
+
 
 }
