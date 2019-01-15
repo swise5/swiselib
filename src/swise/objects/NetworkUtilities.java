@@ -359,7 +359,7 @@ public class NetworkUtilities{
 			
 			// so long as there are more nodes whose connections have not yet been
 			// fully explored, continue looking
-			while(openSet.size() > 0){
+			while(openSet.size() > biggestSize && openSet.size() > 0){
 				
 				GeoNode nprime = (GeoNode) openSet.remove(openSet.size() - 1);
 				found.add(nprime);
@@ -386,10 +386,13 @@ public class NetworkUtilities{
 			}
 			
 			// clean up and, conditionally, terminate the search
-			nodes.removeAll(found);
-			int s = nodes.size();
+			int s = nodes.size() - found.size();
 			if(s == 0 || s < biggestSize) 
 				i = count;
+			if(found.size() < nodes.size() / 2.){
+				nodes.removeAll(found);
+				i = count;
+			}
 		}
 
 		return(subcomponents.get(biggestIndex));

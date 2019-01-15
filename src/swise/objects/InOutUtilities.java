@@ -21,9 +21,9 @@ public class InOutUtilities {
 			System.out.print("Reading in " + layerDescription + "...");
 			File file = new File(filename);
 			if(attributes == null || attributes.size() == 0)
-				ShapeFileImporter.read(file.toURL(), layer);
+				ShapeFileImporter.read(file.toURI().toURL(), layer);
 			else
-				ShapeFileImporter.read(file.toURL(), layer, attributes);
+				ShapeFileImporter.read(file.toURI().toURL(), layer, attributes);
 			System.out.println("done");
 		} catch (Exception e) {
 			e.printStackTrace();
