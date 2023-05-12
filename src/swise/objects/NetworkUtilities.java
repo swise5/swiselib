@@ -171,7 +171,7 @@ public class NetworkUtilities{
 					System.out.println("found you");
 	}
 	
-	static void testNetworkForIssues(Network n){
+	public static void testNetworkForIssues(Network n){
 		System.out.println("testing");
 		for(Object o: n.allNodes){
 			GeoNode node = (GeoNode) o;
