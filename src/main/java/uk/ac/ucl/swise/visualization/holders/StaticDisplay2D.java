@@ -2084,6 +2084,12 @@ public class StaticDisplay2D extends JComponent implements Manipulating2D
 
         refreshPopup.revalidate();
         }
+    
+	@Override
+	public void setMovingWrapper(LocationWrapper arg0) {
+		// TODO lol the Interface gets mad if this isn't here :(
+		
+	}
 
 
 

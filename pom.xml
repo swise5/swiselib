@@ -45,7 +45,7 @@
           <appendAssemblyId>false</appendAssemblyId>
           <archive>
             <manifest>
-              <mainClass>uk.ac.ucl.swise.objects.PopSynth</mainClass>
+              <mainClass>uk.ac.ucl.swise.objects.DummyTest</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
@@ -64,6 +64,12 @@
             <target>${java.version}</target>
             <release>${java.version}</release>
             <forceJavacCompilerUse>true</forceJavacCompilerUse>
+            <archive>
+            <manifest>
+              <mainClass>uk.ac.ucl.swise.objects.DummyTest</mainClass>
+            </manifest>
+          </archive>
+            
           </configuration>
         </plugin>
       </plugins>
