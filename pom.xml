@@ -15,6 +15,17 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <!-- created local mvn repo - see here 
+	  mvn deploy:deploy-file -DgroupId=edu.gmu.cs -DartifactId=mason-geomason -Dversion=1.5 -Durl=file:./local-maven-repo/ -DrepositoryId=local-maven-repo -DupdateReleaseInfo=true -Dfile=/Users/swise/Downloads/geomason.1.5.jar
+  -->
+  <repositories>
+	  <repository>
+	  	<!--  the geomason lib lives here -->
+	        <id>local-maven-repo</id>
+		<url>file:///${project.basedir}/libs/local-maven-repo</url>
+	  </repository>
+  </repositories>
+  
   <dependencies>
     <dependency>
       <groupId>com.vividsolutions</groupId>
@@ -22,17 +33,16 @@
       <version>1.13</version>
     </dependency>
     <dependency>
-      <groupId>edu.gmu.cs</groupId>
-      <artifactId>mason-geomason</artifactId>
-      <version>1.5</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/libs/geomason.1.5.jar</systemPath>
-    </dependency>
-    <dependency>
       <groupId>fr.irit.smac.thirdparty.edu.gmu.cs</groupId>
       <artifactId>mason</artifactId>
       <version>18</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/edu.gmu.cs/mason-geomason -->
+	<dependency>
+	    <groupId>edu.gmu.cs</groupId>
+	    <artifactId>mason-geomason</artifactId>
+	    <version>1.5</version>
+	</dependency>
   </dependencies>
 
 
@@ -72,6 +82,30 @@
             
           </configuration>
         </plugin>
+        
+        <plugin>
+		    <artifactId>maven-deploy-plugin</artifactId>
+		    <configuration>
+		        <altDeploymentRepository>
+		            internal.repo::default::file://${project.build.directory}/mvn-artifact
+		        </altDeploymentRepository>
+		    </configuration>
+		</plugin>
+		
+		<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-source-plugin</artifactId>
+		    <version>3.1.0</version>
+		    <executions>
+		        <execution>
+		            <id>attach-sources</id>
+		                <goals>
+		                    <goal>jar</goal>
+		                </goals>
+		        </execution>
+		    </executions>
+		</plugin>		
+		
       </plugins>
     </pluginManagement>
   </build>
