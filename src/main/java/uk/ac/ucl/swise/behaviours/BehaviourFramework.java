@@ -7,11 +7,11 @@ package uk.ac.ucl.swise.behaviours;
  * @author swise
  *
  */
-public class BehaviourFramework {
+public interface BehaviourFramework {
 	
-	public BehaviourNode entryPoint; // the point at which Agents are initialised
+//	public BehaviourNode entryPoint; 
 	
-	public BehaviourNode getHomeNode(){
-		return entryPoint;
-	}
+	public BehaviourNode getHomeNode();
+	public BehaviourNode getEntryPoint(); // the point at which Agents are initialised
+	
 }
